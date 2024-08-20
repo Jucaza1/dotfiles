@@ -1,0 +1,12 @@
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = https://github.com/jucaza1/vim-config
+[submodule "zsh/.config/zsh/zsh-autosuggestions"]
+	path = zsh/.config/zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/.config/zsh/zsh-syntax-highlighting"]
+	path = zsh/.config/zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-sytax-highlighting
+[submodule "zsh/.config/zsh/zsh-you-should-use"]
+	path = zsh/.config/zsh/zsh-you-should-use
+	url = https://github.com/zsh-users/zsh-you-should-use
