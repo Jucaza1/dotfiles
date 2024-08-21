@@ -1,6 +1,6 @@
-###Dotfiles
+### Dotfiles
 
-##Debian only for nvim plugins
+## Debian only needed commands for nvim plugins
 In case nvim plugins fail delete ~/.local/share  or where plugins lay, then run the following
 ```
 sudo apt-get update
