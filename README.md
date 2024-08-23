@@ -1,7 +1,7 @@
 ### Dotfiles
 
 ## Debian only needed commands for nvim plugins
-In case nvim plugins fail delete ~/.local/share  or where plugins lay, then run the following
+In case nvim plugins fail delete ~/.local/share/nvim  or where plugins lay, then run the following
 ```
 sudo apt-get update
 sudo apt-get install build-essential libreadline-dev unzip gcc python3 python3-pip
