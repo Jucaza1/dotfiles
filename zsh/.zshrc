@@ -40,3 +40,4 @@ mkcd(){
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-you-should-use/zsh-you-should-use.plugin.zsh
+export PATH=$PATH:/usr/local/go/bin

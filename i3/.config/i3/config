@@ -14,15 +14,23 @@ set $sup Mod1
 
 exec_always --no-startup-id killall script_wall.sh
 exec_always --no-startup-id killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar2.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 #exec_always feh --bg-scale ~/.config/background/berserk.jpg
-exec_always --no-startup-id picom
-exec_always --no-startup-id ~/wall/script_wall.sh
+# exec_always --no-startup-id picom
+# exec_always --no-startup-id ~/wall/script_wall.sh
+exec picom -bf
+exec dunst
+exec discord
+exec_always --no-startup-id killall redshift-gtk
+exec_always redshift-gtk
+exec_always --no-startup-id killall pasystray
+exec_always pasystray
+exec_always feh --bg-scale ~/wall/wall6.jpg
 bindsym $mod+c exec rofi -show combi
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Cascadia Code PL 14
+font pango:CaskaydiaCove Nerd Font 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -124,16 +132,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:󰊯"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5a"
-set $ws6 "6b"
-set $ws7 "7c"
-set $ws8 "8d"
-set $ws9 "9e"
-set $ws10 "10O"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "1O"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -146,6 +154,8 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $mod+i workspace next
+bindsym $mod+o workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -193,22 +203,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+# set $bg-color 	         #2f343f
+# set $inactive-bg-color   #2f343f
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     #E53935
+#
+# # window colors
+# #                       border              background         text                 indicator
+# client.focused          $bg-color           $bg-color          $text-color          #00ff00
+# client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+# client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+# client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+set $active-color 	        #87a987
+set $base-color             #12120f
+set $urgent-color           #c4746e
 
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+set $text-color             #c5c9c5
+set $active-text-color      #87a987
+set $inactive-text-color    #a6a69c
+
+set $indicator-color        #87a987
+
+hide_edge_borders both
+# class                 border                  backgr.                 text                    indicator               child_border
+client.focused          $active-color           $base-color             $active-text-color      $indicator-color        $active-color
+client.focused_inactive $base-color             $base-color             $active-color           $base-color             $base-color
+client.unfocused        $base-color             $base-color             $inactive-text-color    $base-color             $base-color
+client.urgent           $base-color             $urgent-color           $text-color             $base-color             $base-color
+client.placeholder      $base-color             $base-color             $inactive-text-color    $base-color             $base-color
+
+# for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 3
+gaps inner 3
+gaps outer 0
+smart_gaps off
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
 #        status_command i3status
 #}
+exec xset r rate 200 35
 exec_always xmodmap ~/.Xmodmap
