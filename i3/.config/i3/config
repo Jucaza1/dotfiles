@@ -28,6 +28,15 @@ exec_always pasystray
 exec_always feh --bg-scale ~/wall/wall6.jpg
 bindsym $mod+c exec rofi -show combi
 
+#Player controls with polybar
+bindsym $mod+t exec kill -usr1 $(pgrep --oldest --parent  $(pgrep --oldest --parent $(pidof polybar)))
+# bindsym $mod+y exec playerctl --player=playerctld play-pause
+bindsym $mod+y exec kill -usr2 $(pgrep --oldest --parent  $(pgrep --oldest --parent $(pidof polybar)))
+# bindsym $mod+b exec playerctl --player=playerctld previous
+# bindsym $mod+n exec playerctl --player=playerctld next
+bindsym $mod+b exec kill -34 $(pgrep --oldest --parent  $(pgrep --oldest --parent $(pidof polybar)))
+bindsym $mod+n exec kill -35 $(pgrep --oldest --parent  $(pgrep --oldest --parent $(pidof polybar)))
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:CaskaydiaCove Nerd Font 14
@@ -244,5 +253,5 @@ smart_gaps off
 #bar {
 #        status_command i3status
 #}
-exec xset r rate 200 35
+exec xset r rate 250 35
 exec_always xmodmap ~/.Xmodmap

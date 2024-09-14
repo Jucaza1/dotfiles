@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-import dbus
 import signal
 import time
 from unicodedata import east_asian_width
+import subprocess
+import dbus
 
 # Config options
 
@@ -23,8 +24,9 @@ control_chars = ['󰒮','󰐊','󰏤','󰒭']
 # else default key value.
 # example:
 display_player_prefix = {
-    "spotify":  '',
+    "spotify":  ' ',
     "firefox":  '',
+    "chromium": ' ',
     "default":  ''
 }
 
@@ -126,6 +128,12 @@ def handle_event(*args):
     last_player_name = get_name_by_index(current_player)
 #    print("SIGUSR1: updated values - current_player = %d  players len = %d"%(current_player,len(players)))
 
+def handle_event_control(cmd):
+    def f(*args):
+        global last_player_name
+        subprocess.run(["playerctl","-p",get_name_by_index(current_player),cmd])
+    return f
+
 def update_message():
     global players, current_player,player_names, message, display_text, message_display_len, display_suffix, last_player_name
     if len(players) == 0:
@@ -213,5 +221,9 @@ def main():
         print_text()
 
 if __name__ == '__main__':
+    signal.pthread_sigmask(signal.SIG_UNBLOCK,[ signal.SIGRTMIN,signal.SIGRTMIN+1])
     signal.signal(signal.SIGUSR1, handle_event)
+    signal.signal(signal.SIGUSR2, handle_event_control("play-pause"))
+    signal.signal(signal.SIGRTMIN, handle_event_control("next"))
+    signal.signal(signal.SIGRTMIN+1, handle_event_control("previous"))
     main()
