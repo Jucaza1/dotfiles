@@ -190,3 +190,4 @@ export PATH=$PATH:~/.local/share/applications/Postman
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PYTHONPATH="/usr/lib/local/lib/python3.11/dist-packages"
 
+export DOCKER_HOST=unix:///var/run/docker.sock
