@@ -121,10 +121,9 @@ compinit
 # End of lines added by compinstall
 alias walls='killall script_wall.sh; ~/wall/script_wall.sh &'
 alias vim='nvim'
-alias vi='nvim'
+# alias vi='nvim'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias vi='nvim'
 alias icat="kitten icat"
 alias py='python3'
 alias deactivated='source $VIRTUAL_ENV/bin/activate; deactivate'
@@ -141,7 +140,8 @@ alias postman-det='Postman > /dev/null 2>&1 & disown'
 PS1='%n@%m %T$ '
 #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\u@\h:\w\t \$\n'
 eval "$(starship init zsh)"
-PATH=$PATH:~/.local/nvim-linux64/bin/
+# PATH=$PATH:~/.local/nvim-linux64/bin/
+PATH=$PATH:~/.local/nvim-linux-x86_64/bin/
 PATH=$PATH:~/.local/
 PATH=$PATH:~/.local/bin
 
@@ -182,7 +182,7 @@ source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-you-should-use/zsh-you-should-use.plugin.zsh
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$(go env GOPATH)/../bin
 TMOUT=0
 export PATH=$PATH:~/.local/share/applications/Postman
 . "$HOME/.asdf/asdf.sh"
@@ -191,3 +191,4 @@ export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PYTHONPATH="/usr/lib/local/lib/python3.11/dist-packages"
 
 export DOCKER_HOST=unix:///var/run/docker.sock
+alias idea="~/idea-IC-251.23774.435/bin/idea"
