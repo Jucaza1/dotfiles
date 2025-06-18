@@ -25,7 +25,7 @@ exec_always --no-startup-id killall redshift-gtk
 exec_always redshift-gtk
 exec_always --no-startup-id killall pasystray
 exec_always pasystray
-exec_always feh --bg-scale ~/wall/wall6.jpg
+exec_always feh --bg-scale ~/wall/debian_red.jpg
 exec --no-startup-id udiskie
 
 bindsym $mod+c exec rofi -show combi
@@ -228,17 +228,19 @@ bindsym $mod+r mode "resize"
 # client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 # client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 # client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
-set $active-color 	        #87a987
+# set $active-color 	        #87a987
+set $active-color 	        #59020e
 set $base-color             #12120f
 set $urgent-color           #c4746e
 
 set $text-color             #c5c9c5
-set $active-text-color      #87a987
+# set $active-text-color      #87a987
+set $active-text-color      #b3051d
 set $inactive-text-color    #a6a69c
 
-set $indicator-color        #87a987
+set $indicator-color        #b3051d
 
-hide_edge_borders both
+hide_edge_borders smart
 # class                 border                  backgr.                 text                    indicator               child_border
 client.focused          $active-color           $base-color             $active-text-color      $indicator-color        $active-color
 client.focused_inactive $base-color             $base-color             $active-color           $base-color             $base-color
