@@ -73,6 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     aliases
+    poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -192,3 +193,6 @@ export PYTHONPATH="/usr/lib/local/lib/python3.11/dist-packages"
 
 export DOCKER_HOST=unix:///var/run/docker.sock
 alias idea="~/idea-IC-251.23774.435/bin/idea"
+# idea snap
+export PATH=$PATH:/snap/bin
+fpath+=~/.zfunc

@@ -29,6 +29,7 @@ exec_always feh --bg-scale ~/wall/debian_red.jpg
 exec --no-startup-id udiskie
 
 bindsym $mod+c exec rofi -show combi
+bindsym $mod+g exec rofi -show drun
 
 #Player controls with polybar
 bindsym $mod+t exec kill -usr1 $(pgrep --oldest --parent  $(pgrep --oldest --parent $(pidof polybar)))

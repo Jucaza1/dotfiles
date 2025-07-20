@@ -3,7 +3,13 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev ~/dev/go ~/dev/python ~/dev/elixir ~/dev/python/learning ~/dev/zig ~/dev/typescript ~/dev/rust ~/dev/rust/xp ~/dev/php ~/dev/kotlin ~/dev/_java ~/dev/bash ~/vaults -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/dev ~/dev/go ~/dev/python ~/dev/elixir \
+    ~/dev/python/learning ~/dev/zig ~/dev/typescript ~/dev/rust ~/dev/rust/xp \
+    ~/dev/php ~/dev/kotlin ~/dev/_java ~/dev/bash ~/vaults \
+    ~/dev/cpp \
+    ~/work \
+    -mindepth 1 -maxdepth 1 -type d | fzf)
+
 fi
 
 if [[ -z $selected ]]; then
