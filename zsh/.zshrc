@@ -74,6 +74,8 @@ plugins=(
     git
     aliases
     poetry
+    zsh-completions
+    # asdf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,7 +115,7 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/user-j/.zshrc'
+zstyle :compinstall filename '/home/jucaza/.zshrc'
 zstyle ':completion:*' menu select
 
 export EDITOR='nvim'
@@ -196,3 +198,4 @@ alias idea="~/idea-IC-251.23774.435/bin/idea"
 # idea snap
 export PATH=$PATH:/snap/bin
 fpath+=~/.zfunc
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
